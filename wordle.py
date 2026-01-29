@@ -48,111 +48,118 @@ mots6 = [
     "maigre","manger","marche","mettre","milieu","minute","montee","moteur","nature"
 ]
 mot_joueur = ""
+mode = 0
 nom_joueur = str(input("Salut, nouveau joueur, quel est ton nom ? "))
-print("Bienvenue sur ce wordle",nom_joueur)
-niveau = int(input("Choisis ton niveau de difficulté de 1 à 3 : "))
-if niveau == 1 :
-    mot_ordi = random.choice(mots4)
-    while mot_ordi != mot_joueur : 
-        mot_joueur = str(input("Chosis un mot : "))
-        c1 = mot_joueur[0]
-        c2 = mot_joueur[1]
-        c3 = mot_joueur[2]
-        c4 = mot_joueur[3]
+print("Bienvenue ", nom_joueur,"tu vas pouvoir jouer à ce wordle. Le but est simple : tu dois réussir à trouver le mot de l'ordinateur en proposant diverses mots. Tu as la possibilté de choisir différents paramètres : ")
+mode = int(input("Tu dispose d'un mode classique, d'un mode vie limités et d'un mode compétitif. Si tu souhaites connaître les détails de chaque mode tape 0 sinon tapes 1, 2 ou 3 pour choisir : "))
+while mode == 0 :
+    print("Le mode classique est un mode ou tu devras trouver le mot de manière normale sans vie et avec des assistances limitées. Le mode vie limitées quant à lui est un mode ou tu devras réussir à trouver le bon mot en un nombre d'essai limités ! Pour finir le mode compétitif est un mode ou tu devras deviner le mot tout en gagnant un maximum de points.")
+    mode = int(input("Alors souhaites-tu le mode classique, vies limités ou compétitif ? Tapes 1, 2 ou 3 : "))
+if mode == 1 :
+    niveau = int(input("Choisis ton niveau de difficulté de 1 à 3 : "))
+    if niveau == 1 :
+        mot_ordi = random.choice(mots4)
+        print("Attention ! Le mot que tu devras trouver est de 4 caractères. Bonne chance", nom_joueur, "!")
+        while mot_ordi != mot_joueur :
+            mot_joueur = str(input("Choisis un mot : "))
+            c1 = mot_joueur[0]
+            c2 = mot_joueur[1]
+            c3 = mot_joueur[2]
+            c4 = mot_joueur[3]
 
-        if mot_ordi == mot_joueur :
-            print("Gagné")
-        elif c1 or c2 or c3 or c4 in mot_ordi :
-            if c1 in mot_ordi and c1 == mot_ordi[0] :
-                print("Le caractère : ", c1, "est correctement placé")
-            elif c1 in mot_ordi :
-                print("Le caractère : ", c1, "est bon mais mal placé.")
-            if c2 in mot_ordi and c2 == mot_ordi[1] :
-                print("Le caractère : ", c2, "est correctement placé")
-            elif c2 in mot_ordi :
-                print("Le caractère : ", c2, "est bon mais mal placé.")
-            if c3 in mot_ordi and c3 == mot_ordi[2] :
-                print("Le caractère : ", c3, "est correctement placé")
-            elif c3 in mot_ordi :
-                print("Le caractère : ", c3, "est bon mais mal placé.")
-            if c4 in mot_ordi and c4 == mot_ordi[3] :
-                print("Le caractère : ", c4, "est correctement placé")
-            elif c4 in mot_ordi :
-                print("Le caractère : ", c4, "est bon mais mal placé.")
-        else :
-            print("Aucun caractère correct !")   
-elif niveau == 2 :
-    mot_ordi = random.choice(mots5)
-    while mot_ordi != mot_joueur : 
-        mot_joueur = str(input("Chosis un mot : "))
-        c1 = mot_joueur[0]
-        c2 = mot_joueur[1]
-        c3 = mot_joueur[2]
-        c4 = mot_joueur[3]
-        c5 = mot_joueur[4]
+            if mot_ordi == mot_joueur :
+                print("Gagné")
+            elif c1 or c2 or c3 or c4 in mot_ordi :
+                if c1 in mot_ordi and c1 == mot_ordi[0] :
+                    print("Le caractère : ", c1, "est correctement placé")
+                elif c1 in mot_ordi :
+                    print("Le caractère : ", c1, "est bon mais mal placé.")
+                if c2 in mot_ordi and c2 == mot_ordi[1] :
+                    print("Le caractère : ", c2, "est correctement placé")
+                elif c2 in mot_ordi :
+                    print("Le caractère : ", c2, "est bon mais mal placé.")
+                if c3 in mot_ordi and c3 == mot_ordi[2] :
+                    print("Le caractère : ", c3, "est correctement placé")
+                elif c3 in mot_ordi :
+                    print("Le caractère : ", c3, "est bon mais mal placé.")
+                if c4 in mot_ordi and c4 == mot_ordi[3] :
+                    print("Le caractère : ", c4, "est correctement placé")
+                elif c4 in mot_ordi :
+                    print("Le caractère : ", c4, "est bon mais mal placé.")
+            else :
+                print("Aucun caractère correct !")   
+    elif niveau == 2 :
+        mot_ordi = random.choice(mots5)
+        while mot_ordi != mot_joueur : 
+            mot_joueur = str(input("Choisis un mot : "))
+            c1 = mot_joueur[0]
+            c2 = mot_joueur[1]
+            c3 = mot_joueur[2]
+            c4 = mot_joueur[3]
+            c5 = mot_joueur[4]
 
-        if mot_ordi == mot_joueur :
-            print("Gagné")
-        elif c1 or c2 or c3 or c4 or c5 in mot_ordi :
-            if c1 in mot_ordi and c1 == mot_ordi[0] :
-                print("Le caractère : ", c1, "est correctement placé")
-            elif c1 in mot_ordi :
-                print("Le caractère : ", c1, "est bon mais mal placé.")
-            if c2 in mot_ordi and c2 == mot_ordi[1] :
-                print("Le caractère : ", c2, "est correctement placé")
-            elif c2 in mot_ordi :
-                print("Le caractère : ", c2, "est bon mais mal placé.")
-            if c3 in mot_ordi and c3 == mot_ordi[2] :
-                print("Le caractère : ", c3, "est correctement placé")
-            elif c3 in mot_ordi :
-                print("Le caractère : ", c3, "est bon mais mal placé.")
-            if c4 in mot_ordi and c4 == mot_ordi[3] :
-                print("Le caractère : ", c4, "est correctement placé")
-            elif c4 in mot_ordi :
-                print("Le caractère : ", c4, "est bon mais mal placé.")
-            if c5 in mot_ordi and c5 == mot_ordi[4] :
-                print("Le caractère : ", c5, "est correctement placé")
-            elif c5 in mot_ordi :
-                print("Le caractère : ", c5, "est bon mais mal placé.")
-        else :
-            print("Aucun caractère correct !")
-else :
-    mot_ordi = random.choice(mots6)
-    while mot_ordi != mot_joueur : 
-        mot_joueur = str(input("Chosis un mot : "))
-        c1 = mot_joueur[0]
-        c2 = mot_joueur[1]
-        c3 = mot_joueur[2]
-        c4 = mot_joueur[3]
-        c5 = mot_joueur[4]
-        c6 = mot_joueur[5]
+            if mot_ordi == mot_joueur :
+                print("Gagné")
+            elif c1 or c2 or c3 or c4 or c5 in mot_ordi :
+                if c1 in mot_ordi and c1 == mot_ordi[0] :
+                    print("Le caractère : ", c1, "est correctement placé")
+                elif c1 in mot_ordi :
+                    print("Le caractère : ", c1, "est bon mais mal placé.")
+                if c2 in mot_ordi and c2 == mot_ordi[1] :
+                    print("Le caractère : ", c2, "est correctement placé")
+                elif c2 in mot_ordi :
+                    print("Le caractère : ", c2, "est bon mais mal placé.")
+                if c3 in mot_ordi and c3 == mot_ordi[2] :
+                    print("Le caractère : ", c3, "est correctement placé")
+                elif c3 in mot_ordi :
+                    print("Le caractère : ", c3, "est bon mais mal placé.")
+                if c4 in mot_ordi and c4 == mot_ordi[3] :
+                    print("Le caractère : ", c4, "est correctement placé")
+                elif c4 in mot_ordi :
+                    print("Le caractère : ", c4, "est bon mais mal placé.")
+                if c5 in mot_ordi and c5 == mot_ordi[4] :
+                    print("Le caractère : ", c5, "est correctement placé")
+                elif c5 in mot_ordi :
+                    print("Le caractère : ", c5, "est bon mais mal placé.")
+            else :
+                print("Aucun caractère correct !")
+    else :
+        mot_ordi = random.choice(mots6)
+        while mot_ordi != mot_joueur : 
+            mot_joueur = str(input("Choisis un mot : "))
+            c1 = mot_joueur[0]
+            c2 = mot_joueur[1]
+            c3 = mot_joueur[2]
+            c4 = mot_joueur[3]
+            c5 = mot_joueur[4]
+            c6 = mot_joueur[5]
 
-        if mot_ordi == mot_joueur :
-            print("Gagné")
-        elif c1 or c2 or c3 or c4 or c5 or c6 in mot_ordi :
-            if c1 in mot_ordi and c1 == mot_ordi[0] :
-                print("Le caractère : ", c1, "est correctement placé")
-            elif c1 in mot_ordi :
-                print("Le caractère : ", c1, "est bon mais mal placé.")
-            if c2 in mot_ordi and c2 == mot_ordi[1] :
-                print("Le caractère : ", c2, "est correctement placé")
-            elif c2 in mot_ordi :
-                print("Le caractère : ", c2, "est bon mais mal placé.")
-            if c3 in mot_ordi and c3 == mot_ordi[2] :
-                print("Le caractère : ", c3, "est correctement placé")
-            elif c3 in mot_ordi :
-                print("Le caractère : ", c3, "est bon mais mal placé.")
-            if c4 in mot_ordi and c4 == mot_ordi[3] :
-                print("Le caractère : ", c4, "est correctement placé")
-            elif c4 in mot_ordi :
-                print("Le caractère : ", c4, "est bon mais mal placé.")
-            if c5 in mot_ordi and c5 == mot_ordi[4] :
-                print("Le caractère : ", c5, "est correctement placé")
-            elif c5 in mot_ordi :
-                print("Le caractère : ", c5, "est bon mais mal placé.")
-            if c6 in mot_ordi and c6 == mot_ordi[5] :
-                print("Le caractère : ", c6, "est correctement placé")
-            elif c6 in mot_ordi :
-                print("Le caractère : ", c6, "est bon mais mal placé.")
-        else :
-            print("Aucun caractère correct !")
+            if mot_ordi == mot_joueur :
+                print("Gagné")
+            elif c1 or c2 or c3 or c4 or c5 or c6 in mot_ordi :
+                if c1 in mot_ordi and c1 == mot_ordi[0] :
+                    print("Le caractère : ", c1, "est correctement placé")
+                elif c1 in mot_ordi :
+                    print("Le caractère : ", c1, "est bon mais mal placé.")
+                if c2 in mot_ordi and c2 == mot_ordi[1] :
+                    print("Le caractère : ", c2, "est correctement placé")
+                elif c2 in mot_ordi :
+                    print("Le caractère : ", c2, "est bon mais mal placé.")
+                if c3 in mot_ordi and c3 == mot_ordi[2] :
+                    print("Le caractère : ", c3, "est correctement placé")
+                elif c3 in mot_ordi :
+                    print("Le caractère : ", c3, "est bon mais mal placé.")
+                if c4 in mot_ordi and c4 == mot_ordi[3] :
+                    print("Le caractère : ", c4, "est correctement placé")
+                elif c4 in mot_ordi :
+                    print("Le caractère : ", c4, "est bon mais mal placé.")
+                if c5 in mot_ordi and c5 == mot_ordi[4] :
+                    print("Le caractère : ", c5, "est correctement placé")
+                elif c5 in mot_ordi :
+                    print("Le caractère : ", c5, "est bon mais mal placé.")
+                if c6 in mot_ordi and c6 == mot_ordi[5] :
+                    print("Le caractère : ", c6, "est correctement placé")
+                elif c6 in mot_ordi :
+                    print("Le caractère : ", c6, "est bon mais mal placé.")
+            else :
+                print("Aucun caractère correct !")
