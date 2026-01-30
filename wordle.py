@@ -55,6 +55,8 @@ mode = int(input("Tu dispose d'un mode classique, d'un mode vie limités et d'un
 while mode == 0 :
     print("Le mode classique est un mode ou tu devras trouver le mot de manière normale sans vie et avec des assistances limitées. Le mode vie limitées quant à lui est un mode ou tu devras réussir à trouver le bon mot en un nombre d'essai limités ! Pour finir le mode compétitif est un mode ou tu devras deviner le mot tout en gagnant un maximum de points.")
     mode = int(input("Alors souhaites-tu le mode classique, vies limités ou compétitif ? Tapes 1, 2 ou 3 : "))
+while mode not in (1, 2, 3) :
+    mode = int(input("Alors souhaites-tu le mode classique, vies limités ou compétitif ? Tapes 1, 2 ou 3 : "))
 if mode == 1 :
     niveau = int(input("Choisis ton niveau de difficulté de 1 à 3 : "))
     if niveau == 1 :
@@ -90,6 +92,7 @@ if mode == 1 :
                 print("Aucun caractère correct !")   
     elif niveau == 2 :
         mot_ordi = random.choice(mots5)
+        print("Attention ! Le mot que tu devras trouver est de 5 caractères. Bonne chance", nom_joueur, "!")
         while mot_ordi != mot_joueur : 
             mot_joueur = str(input("Choisis un mot : "))
             c1 = mot_joueur[0]
@@ -123,8 +126,9 @@ if mode == 1 :
                     print("Le caractère : ", c5, "est bon mais mal placé.")
             else :
                 print("Aucun caractère correct !")
-    else :
+    elif niveau == 3 :
         mot_ordi = random.choice(mots6)
+        print("Attention ! Le mot que tu devras trouver est de 6 caractères. Bonne chance", nom_joueur, "!")
         while mot_ordi != mot_joueur : 
             mot_joueur = str(input("Choisis un mot : "))
             c1 = mot_joueur[0]

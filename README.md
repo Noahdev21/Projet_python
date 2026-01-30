@@ -10,7 +10,6 @@ Projet ayant pour but de m'entrainer et développer mes connaisances sur Python.
 - Python
 
 ## To-do
--Préciser nombre de caractères
 -dire quand aucun caractère de bon
 -placement du nom au départ
 -assertion
