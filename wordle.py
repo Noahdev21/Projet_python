@@ -49,29 +49,38 @@ mots6 = [
 ]
 mot_joueur = ""
 mode = 0
+niveau = 0
+caractere = 'abcdefghijklmnopqtrstuvwxyz'
 nom_joueur = str(input("Salut, nouveau joueur, quel est ton nom ? "))
 print("Bienvenue ", nom_joueur,"tu vas pouvoir jouer à ce wordle. Le but est simple : tu dois réussir à trouver le mot de l'ordinateur en proposant diverses mots. Tu as la possibilté de choisir différents paramètres : ")
 mode = int(input("Tu dispose d'un mode classique, d'un mode vie limités et d'un mode compétitif. Si tu souhaites connaître les détails de chaque mode tape 0 sinon tapes 1, 2 ou 3 pour choisir : "))
+while mode not in (0, 1, 2, 3) :
+    mode = int(input("Attention, tu dois choisir un nombre entre 0 et 3 ! Alors, quel nombre choisis-tu ?"))
 while mode == 0 :
     print("Le mode classique est un mode ou tu devras trouver le mot de manière normale sans vie et avec des assistances limitées. Le mode vie limitées quant à lui est un mode ou tu devras réussir à trouver le bon mot en un nombre d'essai limités ! Pour finir le mode compétitif est un mode ou tu devras deviner le mot tout en gagnant un maximum de points.")
     mode = int(input("Alors souhaites-tu le mode classique, vies limités ou compétitif ? Tapes 1, 2 ou 3 : "))
-while mode not in (1, 2, 3) :
-    mode = int(input("Alors souhaites-tu le mode classique, vies limités ou compétitif ? Tapes 1, 2 ou 3 : "))
+    if mode not in (0, 1, 2, 3) :
+        mode = 0
 if mode == 1 :
-    niveau = int(input("Choisis ton niveau de difficulté de 1 à 3 : "))
+    while niveau not in (1 ,2, 3) :
+        niveau = int(input("Choisis ton niveau de difficulté de 1 à 3 : "))
     if niveau == 1 :
         mot_ordi = random.choice(mots4)
         print("Attention ! Le mot que tu devras trouver est de 4 caractères. Bonne chance", nom_joueur, "!")
         while mot_ordi != mot_joueur :
             mot_joueur = str(input("Choisis un mot : "))
+            while len(mot_joueur) != 4 :
+                print("Tu dois trouver un mot de 4 caractères !")
+                mot_joueur = str(input("Choisis un mot en 4 lettres : "))
             c1 = mot_joueur[0]
             c2 = mot_joueur[1]
             c3 = mot_joueur[2]
             c4 = mot_joueur[3]
-
-            if mot_ordi == mot_joueur :
+            if (c1 or c2 or c3 or c4) not in caractere :
+                print("Attention ! Vous ne pouvez utiliser que des caractères minuscules sans accents.")
+            elif mot_ordi == mot_joueur :
                 print("Gagné")
-            elif c1 or c2 or c3 or c4 in mot_ordi :
+            elif c1 in mot_ordi or c2 in mot_ordi or c3 in mot_ordi or c4 in mot_ordi :
                 if c1 in mot_ordi and c1 == mot_ordi[0] :
                     print("Le caractère : ", c1, "est correctement placé")
                 elif c1 in mot_ordi :
@@ -95,13 +104,16 @@ if mode == 1 :
         print("Attention ! Le mot que tu devras trouver est de 5 caractères. Bonne chance", nom_joueur, "!")
         while mot_ordi != mot_joueur : 
             mot_joueur = str(input("Choisis un mot : "))
+            if len(mot_joueur) != 5 :
+                print("Tu dois trouver un nombre de 5 caractères !")
             c1 = mot_joueur[0]
             c2 = mot_joueur[1]
             c3 = mot_joueur[2]
             c4 = mot_joueur[3]
             c5 = mot_joueur[4]
-
-            if mot_ordi == mot_joueur :
+            if (c1 or c2 or c3 or c4 or c5) not in caractere :
+                print("Attention ! Vous ne pouvez utiliser que des caractères minuscules sans accents.")
+            elif mot_ordi == mot_joueur :
                 print("Gagné")
             elif c1 or c2 or c3 or c4 or c5 in mot_ordi :
                 if c1 in mot_ordi and c1 == mot_ordi[0] :
@@ -131,13 +143,16 @@ if mode == 1 :
         print("Attention ! Le mot que tu devras trouver est de 6 caractères. Bonne chance", nom_joueur, "!")
         while mot_ordi != mot_joueur : 
             mot_joueur = str(input("Choisis un mot : "))
+            if len(mot_joueur) != 6 :
+                print("Tu dois trouver un nombre de 6 caractères !")
             c1 = mot_joueur[0]
             c2 = mot_joueur[1]
             c3 = mot_joueur[2]
             c4 = mot_joueur[3]
             c5 = mot_joueur[4]
             c6 = mot_joueur[5]
-
+            if (c1 or c2 or c3 or c4 or c5 or c6) not in caractere :
+                print("Attention ! Vous ne pouvez utiliser que des caractères minuscules sans accents.")
             if mot_ordi == mot_joueur :
                 print("Gagné")
             elif c1 or c2 or c3 or c4 or c5 or c6 in mot_ordi :
